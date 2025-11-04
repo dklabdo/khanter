@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme {
+  --font-size-sm: clamp(0.4rem, 0.12vw + 0.3rem, 0.65rem);
+  --font-size-base: clamp(1rem, 0.3vw + 0.79rem, 1.1rem);
+  --font-size-lg: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --font-size-xl: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --font-size-2xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+  --font-size-3xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  --font-size-4xl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+  --font-size-5xl: clamp(3.81rem, 5.18vw + 2.52rem, 6.66rem);
+  --font-size-6xl: clamp(4.77rem, 7.48vw + 2.9rem, 8.88rem);
+  --color-primary: #f2c42b;
+  --color-secondary: #c9aa6a;
+  --color-bg: #332d46;
+  --color-accent: #191919;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #191919;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  max-height: 100dvh;
+}
+
+.swiper-slide {
+  z-index: 1 !important; /* Default low z-index */
+  transition: transform 0.5s ease-in-out, z-index 0.5s ease-in-out;
+}
+
+.swiper-slide-active {
+  z-index: 10 !important; /* Ensure active slide is always on top */
+}
+
+.swiper-slide-prev {
+  z-index: 5 !important; /* Keep previous slide above next slide */
+}
+
+.swiper-slide-next {
+  z-index: 2 !important; /* Lower than prev & active */
+}
+
+/* Custom scrollbar styles */
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+details[open] .content {
+  max-height: 200px; /* Adjust based on your content size */
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.openAnimation {
+  animation-name: open;
+  animation-delay: 0.1s;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes open {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+input {
+  @apply px-[10px] py-[10px] placeholder:font-light placeholder:text-gray-400 outline-none rounded-2xl border-[1.9px] border-gray-400 focus:border-primary;
+}
+
+label {
+  @apply font-medium;
+}
+
+/* Apply to your target element */
+.elementShadow {
+  box-shadow: 0 8px 8px rgba(209, 209, 209, 0.153);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #0c455f !important;
+}
+
+.opeSideBar {
+  animation-name: openSide;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+
+@keyframes openSide {
+  0% {
+    transform: translateX(-100%);
+    display: block;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input {
+  outline: none;
+}
+
+@media (min-width: 900px) {
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 8px;
+  }
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+/* ✅ Hide scrollbar completely – Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ Hide scrollbar completely – Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* ✅ Keep scroll functional and remove layout shifts */
+body {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and old Edge */
+}
