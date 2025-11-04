@@ -6,17 +6,17 @@ import React, { useState } from "react";
 function Nav() {
   const [show, setshow] = useState(false);
   return (
-    <div className="w-full  bg-white z-30 max-w-screen m-0 p-0 fixed left-0 right-0   flex flex-col    backdrop-blur-md ">
+    <div className="w-full   z-30 max-w-screen m-0 p-0 fixed left-0 right-0   flex flex-col    backdrop-blur-md ">
       <div className="w-full   flex items-center px-2 md:px-5 justify-between  h-16    ">
         <div>
           {" "}
           <Image src="/logo.svg" width={32} height={40} alt="...." />{" "}
         </div>
-        <ul className="text-primary  hidden lg:flex pl-8 gap-6">
+        <ul className="text-white  hidden lg:flex pl-8 gap-6">
           <li className="   cursor-pointer ">Home</li>
-          <li className="  hover:text-primary cursor-pointer ">About</li>
-          <li className="  hover:text-primary cursor-pointer ">Services</li>
-          <li className="  hover:text-primary cursor-pointer ">Contact</li>
+          <li className="   cursor-pointer ">About</li>
+          <li className="   cursor-pointer ">Services</li>
+          <li className="   cursor-pointer ">Contact</li>
         </ul>
         <div className="items-center flex  gap-1 ">
           <button
@@ -30,8 +30,8 @@ function Nav() {
       </div>
       {show && (
         <div className="max-w-screen w-full h-[200px] ">
-          <ul className=" px-5 pt-5 flex text-primary flex-col gap-3  ">
-            <li className="flex group  justify-between  hover:text-primary cursor-pointer ">
+          <ul className=" px-5 pt-5 flex text-white flex-col gap-3  ">
+            <li className="flex group text-white  justify-between   cursor-pointer ">
               Home{" "}
               <ChevronRight
                 size={22}
