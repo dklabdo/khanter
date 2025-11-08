@@ -10,20 +10,8 @@ import Nav from "./Components/Nav";
 import Section5 from "./Components/Section5";
 
 export default function ScrollPage() {
-  const containerRef = useRef(null);
-
-  // Scroll progress for progress bar
-  const { scrollYProgress } = useScroll({
-    container: containerRef,
-  });
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-  });
-
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative container mx-auto h-screen w-full overflow-hidden">
       <Nav />
       {/* <motion.div
         style={{ scaleX }}
@@ -31,10 +19,7 @@ export default function ScrollPage() {
       /> */}
 
       {/* SCROLL CONTAINER */}
-      <div
-        ref={containerRef}
-        className="h-full w-full overflow-x-hidden overflow-y-scroll snap-y snap-mandatory scroll-smooth"
-      >
+      <div className="h-full w-full overflow-x-hidden overflow-y-scroll snap-y  scroll-smooth">
         <Section1 />
         <Section2 />
         <Section3 />

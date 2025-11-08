@@ -4,18 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export default function Section4() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [-150, 150]);
+  
 
   return (
     <section
-      ref={ref}
-      className="relative w-full  h-dvh scroll-snap-start overflow-hidden bg-cover bg-center bg-no-repeat"
+      className="relative w-full  h-dvh  overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/img/img4.jpg')" }} // 👈 your image path
     >
       {/* Parallax overlay movement */}

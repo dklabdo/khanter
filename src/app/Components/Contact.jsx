@@ -33,7 +33,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-4 bg-background">
+    <div className="min-h-screen scale-90 pt-4 ">
       {/* Header */}
       {/* <div className="bg-primary text-white py-8">
         <div className="container mx-auto px-4">
@@ -108,7 +108,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block pl-2 text-sm font-medium mb-2"
                 >
                   Name
                 </label>
@@ -127,7 +127,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block pl-2 text-sm font-medium mb-2"
                 >
                   Email
                 </label>
@@ -143,29 +143,12 @@ export const Contact = () => {
                 />
               </div>
 
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full"
-                  placeholder="What is this about?"
-                />
-              </div>
+             
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block pl-2 text-sm font-medium mb-2"
                 >
                   Message
                 </label>
@@ -175,7 +158,7 @@ export const Contact = () => {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full border-[2px] min-h-32 focus:border-primary outline-none border-gray-400 rounded-2xl p-2 "
+                  className="w-full border-[2px] min-h-24 h-24 focus:border-primary outline-none border-gray-400 rounded-2xl p-2 "
                   placeholder="Tell us more..."
                 />
               </div>
@@ -183,7 +166,7 @@ export const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary flex items-center justify-center rounded-2xl hover:bg-primary-glow text-dark font-semibold py-3 text-lg"
+                className="w-full bg-primary transition hover:bg-black  text-white cursor-pointer flex items-center justify-center rounded-2xl hover:bg-primary-glow text-dark font-semibold py-3 text-lg"
               >
                 {isSubmitting ? (
                   "Sending..."
