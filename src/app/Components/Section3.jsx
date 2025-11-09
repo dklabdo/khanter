@@ -3,14 +3,15 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { Service } from "./Service";
 
 export default function Section3() {
   return (
-    <section className="relative w-full   overflow-hidden bg-cover bg-center bg-no-repeat">
+    <section className="relative   py-18 overflow-hidden bg-cover bg-center bg-no-repeat">
       {/* Parallax overlay movement */}
 
       {/* Text Content */}
-      <div className="relative py-28 items-center  z-10 flex flex-col justify-between h-fit px-2 md:px-6  ">
+      <div className="relative  items-center  z-10 flex flex-col  h-fit px-2 md:px-6  ">
         <motion.h1
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,16 +24,16 @@ export default function Section3() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-sm lg:text-lg text-center px-2  text-gray-600 font-medium tracking-tight mb-12"
+          className="text-sm lg:text-lg mb-2 text-center px-2  text-gray-600 font-medium tracking-tight "
         >
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius,
           pariatur?
         </motion.h1>
 
-        <div className="w-full flex flex-wrap  ">
+        {/* <div className="w-full flex flex-wrap  ">
 
 
-          <div className="rounded-lg lg:w-1/2 scale-95 relative w-full h-[450px]  ">
+          <div className="rounded-lg lg:w-1/2  scale-95 relative w-full h-[450px]  ">
             <Image
               src={"/img/img1.jpg"}
               fill
@@ -186,17 +187,14 @@ export default function Section3() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
+        <Service title={"Automotive"} />
+        <Service title={"Energy"} />
+        <Service title={"Electricity"} />
+        <Service title={"Oil & Gaz"} />
       </div>
     </section>
   );
 }
 
-function ServiceCard({ title, par }) {
-  return (
-    <div className="min-w-[80%] w-[80%] h-full flex flex-col justify-between p-3 rounded-lg bg-white ">
-      <p className=" text-lg font-semibold text-black  "> {title} </p>
-      <p className="  text-sm font-light text-gray-700 "> {par} </p>
-    </div>
-  );
-}
+

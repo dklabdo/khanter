@@ -1,48 +1,46 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import Image from "next/image";
 
 export default function Section2() {
-  
   return (
-    <section
-      className="relative w-full rounded-xl h-[500px]  overflow-hidden "
-    >
-      <video
-        className="absolute top-0 left-0 min-w-full w-full h-full object-cover"
-        src="/videos/background1.mp4" // 👉 put your video file path here
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      {/* Parallax overlay movement */}
-      <div className="absolute h-full inset-0 bg-gradient-to-b from-black/40 via-black/60  to-black" />
+    <section className="lg:flex-row gap-5 flex-col md:mb-14 scale-95 w-full mt-10 flex items-center  h-fit lg:h-[450px]  overflow-hidden ">
+      <div className="relative px-2  z-10 flex flex-col lg:w-[55%] justify-between h-full  md:px-6  text-black">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+          Qui sommes nous
+        </h1>
+
+        <div className="flex flex-col gap-5">
+          <p className="text-md text-justify md:text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+            ex in modi officiis, accusantium alias laboriosam deserunt. Facere
+            minus fugiat cumque, laudantium harum maxime ipsam aliquam
+            accusantium hic repudiandae ratione, eius quaerat quis inventore
+            nisi.
+          </p>
+          <button className="w-fit px-6 py-3 rounded-lg text-sm bg-black text-white">
+            Decouvrir Nous services
+          </button>
+        </div>
+      </div>
+
+      <div className="w-full lg:w-[45%] relative rounded-2xl h-[400px] lg:h-full ">
+        <video
+          className="absolute top-0 left-0 rounded-2xl min-w-full w-full h-full object-cover"
+          src="/videos/background1.mp4" // 👉 put your video file path here
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        {/* Parallax overlay movement */}
+        <div className="absolute h-full rounded-2xl inset-0 bg-gradient-to-b bg-primary/70" />
+        <div className="absolute bottom-3 right-3 h-fit w-fit " >
+          <Image className="scale-75" src={"icon-logo.svg"} width={60} height={60} alt="....."  />
+        </div>
+      </div>
 
       {/* Text Content */}
-      <div className="relative pb-6 z-10 flex flex-col justify-between h-full px-3 md:px-6 pt-4 text-white">
-        <motion.h1
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-6xl md:text-7xl font-extrabold tracking-tight mb-4"
-        >
-          Qui sommes nous
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="text-md text-justify md:text-xl"
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-          numquam praesentium ducimus reiciendis laudantium expedita earum nemo
-          cum, quas iusto beatae, maxime nisi modi. Voluptate aspernatur
-          quisquam eius architecto illum.
-        </motion.p>
-      </div>
     </section>
   );
 }

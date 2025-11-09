@@ -11,19 +11,16 @@ import Section5 from "./Components/Section5";
 
 export default function ScrollPage() {
   return (
-    <div className="relative container mx-auto h-screen w-full overflow-hidden">
+    <div className="relative w-full bg-bg 2xl:container mx-auto h-screen  overflow-hidden">
       <Nav />
-      {/* <motion.div
-        style={{ scaleX }}
-        className="fixed left-0 right-0 bottom-8 h-[5px] bg-blue-500 origin-left z-50"
-      /> */}
 
       {/* SCROLL CONTAINER */}
-      <div className="h-full w-full overflow-x-hidden overflow-y-scroll snap-y  scroll-smooth">
+      <div className="h-full w-full overflow-x-hidden overflow-y-scroll  scroll-smooth">
         <Section1 />
         <Section2 />
+
         <Section3 />
-        <Section4 />
+
         <Section5 />
       </div>
     </div>
