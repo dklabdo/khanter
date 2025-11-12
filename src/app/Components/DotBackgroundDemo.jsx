@@ -44,7 +44,7 @@ export function DotBackgroundDemo() {
 
         // dots near the cursor glow and scale
         const influence = Math.max(0, 1 - dist / 120);
-        const size = dot.baseSize + influence * 2.5;
+        const size = dot.baseSize + influence * 4;
         const color = influence > 0 ? "#FCC90E" : "#434343";
 
         ctx.beginPath();

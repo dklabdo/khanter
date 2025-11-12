@@ -6,17 +6,17 @@ import React, { useState } from "react";
 function Nav() {
   const [show, setshow] = useState(false);
   return (
-    <div className="w-full bg-primary  z-30 max-w-screen m-0 p-0 absolute left-0 right-0   flex flex-col     ">
+    <div className="w-full top-2  z-30 max-w-screen m-0 p-0 absolute left-0 right-0   flex flex-col     ">
       <div className="w-full   flex items-center px-2 md:px-5 justify-between  h-14    ">
         <div>
           {" "}
-          <Image src="/icon-logo.svg" width={30} height={40} alt="...." />{" "}
+          <Image src="/logo.svg" width={110} height={40} alt="...." />{" "}
         </div>
-        <ul className="text-white  hidden lg:flex gap-6">
-          <li className=" hover:underline cursor-pointer ">Home</li>
-          <li className=" hover:underline cursor-pointer ">About</li>
-          <li className=" hover:underline cursor-pointer ">Services</li>
-          <li className=" hover:underline cursor-pointer ">Contact</li>
+        <ul className=" bg-white/70 backdrop-blur-3xl text-black py-2  px-16 rounded-xl border-[1.2px] border-white hidden lg:flex gap-6">
+          <li className=" hover:text-primary font-semibold cursor-pointer ">Home</li>
+          <li className=" hover:text-primary font-semibold cursor-pointer ">About</li>
+          <li className=" hover:text-primary font-semibold cursor-pointer ">Services</li>
+          <li className=" hover:text-primary font-semibold cursor-pointer ">Contact</li>
         </ul>
         <div className="items-center flex lg:hidden gap-1 ">
           <button
