@@ -33,7 +33,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen scale-90 pt-4 ">
+    <div className="min-h-screen md:scale-90 pt-4 ">
       {/* Header */}
       {/* <div className="bg-primary text-white py-8">
         <div className="container mx-auto px-4">

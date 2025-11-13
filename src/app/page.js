@@ -8,6 +8,7 @@ import Section3 from "./Components/Section3";
 import Section4 from "./Components/Section4";
 import Nav from "./Components/Nav";
 import Section5 from "./Components/Section5";
+import Footer from "./Components/Footer";
 
 export default function ScrollPage() {
   return (
@@ -18,10 +19,11 @@ export default function ScrollPage() {
       <div className="h-full w-full overflow-x-hidden overflow-y-scroll  scroll-smooth">
         <Section1 />
         <Section2 />
-
+        <Section4 />
         <Section3 />
 
         <Section5 />
+        <Footer />
       </div>
     </div>
   );

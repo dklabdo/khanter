@@ -17,7 +17,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Wassem",
+  title: "Khenter",
 
   description:
     "Wassem vous aide à connecter votre audience à vos contenus en un scan.  Intégrez des QR codes intelligents à vos afchages et ofrez une  expérience interactive, mesurable et innovante.",

@@ -9,9 +9,9 @@ export function Service({title , category}) {
   ));
  
   return (
-    <div className="w-full h-full py-6 md:py-8">
+    <div className="w-full  h-full py-6">
       
-      <Carousel title={title} items={cards} />
+      <Carousel category={category} title={title} items={cards} />
     </div>
   );
 }

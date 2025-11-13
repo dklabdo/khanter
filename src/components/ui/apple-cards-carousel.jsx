@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import React, {
   useEffect,
   useRef,
@@ -14,17 +14,15 @@ import {
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import Image from "next/image";
+import { Atom, Fuel, Wrench, Zap } from "lucide-react";
 
 export const CarouselContext = createContext({
   onCardClose: () => {},
   currentIndex: 0,
 });
 
-export const Carousel = ({
-  items,
-  title,
-  initialScroll = 0
-}) => {
+export const Carousel = ({ category, items, title, initialScroll = 0 }) => {
   const carouselRef = React.useRef(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
@@ -75,21 +73,28 @@ export const Carousel = ({
   };
 
   return (
-    <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
+    <CarouselContext.Provider
+      value={{ onCardClose: handleCardClose, currentIndex }}
+    >
       <div className="relative w-full">
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth pb-6 [scrollbar-width:none] md:py-10"
           ref={carouselRef}
-          onScroll={checkScrollability}>
+          onScroll={checkScrollability}
+        >
           <div
-            className={cn("absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l")}></div>
+            className={cn(
+              "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
+            )}
+          ></div>
 
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
               // remove max-w-4xl if you want the carousel to span the full width of its container
               "mx-auto max-w-7xl"
-            )}>
+            )}
+          >
             {items.map((item, index) => (
               <motion.div
                 initial={{
@@ -107,29 +112,37 @@ export const Carousel = ({
                   },
                 }}
                 key={"card" + index}
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]">
+                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+              >
                 {item}
               </motion.div>
             ))}
           </div>
         </div>
 
-
         <div className="pl-4  md:pl-8 items-center flex justify-between gap-2">
-          <h1 className="text-xl md:text-3xl font-bold " > {title} </h1>
-          <div className=" flex items-center gap-2" >
+          <h1 className="text-xl flex items-center gap-2 md:text-3xl font-medium ">
+            {category === 1 && <Wrench  size={25} />}
+            {category === 2 && <Atom size={25} />}
+            {category === 3 && <Zap size={25} />}
+            {category === 4 && <Fuel size={25} />}
+            {title}{" "}
+          </h1>
+          <div className=" flex items-center gap-2">
             <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}>
-            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
-          </button>
-          <button
-            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
-            onClick={scrollRight}
-            disabled={!canScrollRight}>
-            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
-          </button>
+              className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
+              onClick={scrollLeft}
+              disabled={!canScrollLeft}
+            >
+              <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+            </button>
+            <button
+              className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
+              onClick={scrollRight}
+              disabled={!canScrollRight}
+            >
+              <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+            </button>
           </div>
         </div>
       </div>
@@ -137,11 +150,7 @@ export const Carousel = ({
   );
 };
 
-export const Card = ({
-  card,
-  index,
-  layout = false
-}) => {
+export const Card = ({ card, index, layout = false }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
@@ -176,22 +185,23 @@ export const Card = ({
 
   return (
     <>
-      
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative z-10 flex h-[400px] w-72 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[450px] md:w-96 dark:bg-neutral-900">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+        className="relative z-10 flex h-[280px] w-64 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[370px] md:w-96 dark:bg-neutral-900"
+      >
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
         <div className="relative z-40 p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sans text-sm font-medium text-white md:text-base">
+            className="text-left font-sans text-sm font-medium text-white md:text-base"
+          >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl">
+            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
+          >
             {card.title}
           </motion.p>
         </div>
@@ -199,20 +209,14 @@ export const Card = ({
           src={card.src}
           alt={card.title}
           fill
-          className="absolute inset-0 z-10 object-cover" />
+          className="absolute inset-0 z-10 object-cover"
+        />
       </motion.button>
     </>
   );
 };
 
-export const BlurImage = ({
-  height,
-  width,
-  src,
-  className,
-  alt,
-  ...rest
-}) => {
+export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
   const [isLoading, setLoading] = useState(true);
   return (
     <img
@@ -229,6 +233,7 @@ export const BlurImage = ({
       decoding="async"
       blurDataURL={typeof src === "string" ? src : undefined}
       alt={alt ? alt : "Background of a beautiful view"}
-      {...rest} />
+      {...rest}
+    />
   );
 };

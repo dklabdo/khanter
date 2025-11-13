@@ -7,7 +7,7 @@ import { Service } from "./Service";
 
 export default function Section3() {
   return (
-    <section className="relative   py-18 overflow-hidden bg-cover bg-center bg-no-repeat">
+    <section className="relative md:scale-95  py-8 overflow-hidden bg-cover bg-center bg-no-repeat">
       {/* Parallax overlay movement */}
 
       {/* Text Content */}
@@ -188,10 +188,10 @@ export default function Section3() {
             </div>
           </div>
         </div> */}
-        <Service title={"Automotive"} />
-        <Service title={"Energy"} />
-        <Service title={"Electricity"} />
-        <Service title={"Oil & Gaz"} />
+        <Service category={1} title={"Automotive"} />
+        <Service category={2} title={"Energy"} />
+        <Service category={3} title={"Electricity"} />
+        <Service category={4} title={"Oil & Gaz"} />
       </div>
     </section>
   );

@@ -77,7 +77,7 @@ export function DotBackgroundDemo() {
   return (
     <div className="relative min-w-full h-[800px] md:h-[700px] w-full flex items-center justify-center overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0" />
-      <div className="absolute top-[23%] w-full md:w-[70%] justify-center scale-95 md:scale-[.8] flex flex-col items-center  gap-3 ">
+      <div className="absolute top-[23%] w-full md:w-[70%] justify-center scale-95 md:scale-[.85] flex flex-col items-center  gap-3 ">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
